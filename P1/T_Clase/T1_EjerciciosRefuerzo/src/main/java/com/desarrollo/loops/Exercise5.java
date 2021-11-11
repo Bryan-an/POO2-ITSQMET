@@ -11,25 +11,26 @@ import java.io.InputStreamReader;
  *
  * @author Bryan
  */
-public class Exercise3 {
+public class Exercise5 {
 
     private BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    private int number;
+    private String phrase;
+    private int vowelsCount = 0;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Exercise3().askNumber();
+        new Exercise5().askPhrase();
     }
 
-    public void askNumber() {
+    public void askPhrase() {
         boolean valid = false;
 
         do {
             try {
-                System.out.println("¿Hasta qué posición desea imprimir la serie?: ");
-                number = Integer.parseInt(input.readLine());
+                System.out.println("Ingrese la frase: ");
+                phrase = input.readLine();
                 System.out.println();
                 valid = true;
             } catch (Exception e) {
@@ -37,19 +38,24 @@ public class Exercise3 {
             }
         } while (!valid);
 
-        printPairNumbers();
+        printVowelsNumber();
     }
 
-    public void printPairNumbers() {
+    public void printVowelsNumber() {
+        phrase = phrase.toLowerCase();
 
-        for (int i = 0; i < 10; i++) {
-            if (number % 2 == 0) {
-                System.out.println(number);
-                number += 2;
-            } else {
-                number++;
-                i--;
+        for (int i = 0; i < phrase.length(); i++) {
+            if (phrase.charAt(i) == 'a'
+                    || phrase.charAt(i) == 'e'
+                    || phrase.charAt(i) == 'i'
+                    || phrase.charAt(i) == 'o'
+                    || phrase.charAt(i) == 'u') {
+
+                vowelsCount++;
             }
         }
+
+        System.out.printf("Hay %d vocales", vowelsCount);
     }
+
 }

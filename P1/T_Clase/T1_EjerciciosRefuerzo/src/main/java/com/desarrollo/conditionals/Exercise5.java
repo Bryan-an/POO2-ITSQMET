@@ -11,38 +11,36 @@ import java.io.InputStreamReader;
  *
  * @author Bryan
  */
-public class Exercise3 {
+public class Exercise5 {
 
-    private int hours;
     private BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-    private int salary;
+    private int age;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Exercise3().askHours();
+        new Exercise5().askAge();
     }
 
-    public void askHours() {
+    public void askAge() {
         boolean valid = false;
 
         do {
             try {
-                System.out.println("\nIngrese las horas de trabajo a la semana: ");
-                hours = Integer.parseInt(input.readLine());
+                System.out.println("\nIngrese su edad: ");
+                age = Integer.parseInt(input.readLine());
 
-                if (hours < 0) {
+                if (age < 0 || age > 100) {
                     throw new Exception();
                 }
 
-                if (hours <= 40) {
-                    salary = 5;
+                if (age >= 18) {
+                    System.out.println("\nUsted es mayor de edad");
                 } else {
-                    salary = 8;
+                    System.out.println("\nUsted es menor de edad");
                 }
 
-                System.out.printf("\nEl salario es de $ %d.00 la hora", salary);
                 valid = true;
             } catch (Exception e) {
                 System.out.println("\nDato inválido");
