@@ -8,7 +8,7 @@ package controlador;
  *
  * @author Bryan
  */
-public class ClientesControlador {
+public class ProveedoresControlador {
 
     private int id;
     private String nombres;
