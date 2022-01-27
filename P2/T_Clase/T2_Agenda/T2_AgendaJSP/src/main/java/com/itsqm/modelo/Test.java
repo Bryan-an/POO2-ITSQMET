@@ -1,7 +1,6 @@
 package com.itsqm.modelo;
 
 import java.util.Set;
-import java.util.stream.Stream;
 import org.json.JSONObject;
 
 /**
@@ -18,10 +17,9 @@ public class Test {
         JSONObject datos = am.consultarClientes("");
         Set<String> keys = datos.keySet();
 
-        keys.stream()
-                .map(key -> (String[]) datos.get(key))
-                .forEach(arregloDatos -> Stream.of(arregloDatos).forEach(System.out::println));
-
+//        keys.stream()
+//                .map(key -> (String[]) datos.get(key))
+//                .forEach(arregloDatos -> Stream.of(arregloDatos).forEach(System.out::println));
 //        for (int i = 0; i < datos.length(); i++) {
 //            System.out.println("-->" + datos.getJSONArray(i + ""));
 //
@@ -31,16 +29,17 @@ public class Test {
 //                System.out.println(dato);
 //            }
 //        }
-//        for (int i = 0; i < datos.length(); i++) {
-//            System.out.println(datos.length());
-//            System.out.println("-->" + datos.get(i + ""));
-//
-//            String[] arregloDatos = (String[]) datos.get(i + "");
-//
-//            for (String dato : arregloDatos) {
-//                System.out.println(dato);
-//            }
-//        }
+        for (int i = 0; i < datos.length(); i++) {
+            System.out.println(datos.length());
+            System.out.println("-->" + datos.get(i + ""));
+
+            String[] arregloDatos = (String[]) datos.get(i + "");
+
+            for (String dato : arregloDatos) {
+                System.out.println(dato);
+            }
+        }
+
     }
 
 }
