@@ -60,14 +60,14 @@ public class Conexion {
     }
 
     public String ejecutar(String sql) {
-        String error = "";
+        String error = "0";
 
         try {
             st = getConexion().createStatement();
             st.execute(sql);
-            error = "Sentencia exitosa";
-        } catch (Exception e) {
-            error = e.getMessage();
+            error = "1";
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         return error;

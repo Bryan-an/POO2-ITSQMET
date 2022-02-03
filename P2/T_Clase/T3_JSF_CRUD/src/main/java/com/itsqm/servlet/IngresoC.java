@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Bryan
  */
-@WebServlet(name = "Ingreso", urlPatterns = {"/Ingreso"})
+@WebServlet(name = "IngresoC", urlPatterns = {"/IngresoC"})
 public class IngresoC extends HttpServlet {
 
     // GET -> doGet
