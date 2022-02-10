@@ -97,13 +97,14 @@ public class Contacto {
         return msj;
     }
 
-    public ResultSet consultar(String buscar) {
+    public ResultSet consultarContacto(String buscar) {
         ResultSet rs = null;
         String sql = "SELECT * FROM contactos "
-                + "WHERE nombres LIKE '" + buscar
+                + "WHERE id_contacto = " + buscar
+                + " OR (nombres LIKE '" + buscar
                 + "' OR apellidos LIKE '" + buscar
                 + "' OR tel1 LIKE '" + buscar
-                + "' OR tel2 LIKE '" + buscar + "'";
+                + "' OR tel2 LIKE '" + buscar + "')";
 
         try {
             Conexion c = new Conexion();
