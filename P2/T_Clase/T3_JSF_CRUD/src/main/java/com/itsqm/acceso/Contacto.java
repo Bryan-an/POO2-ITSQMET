@@ -100,11 +100,10 @@ public class Contacto {
     public ResultSet consultarContacto(String buscar) {
         ResultSet rs = null;
         String sql = "SELECT * FROM contactos "
-                + "WHERE id_contacto = " + buscar
-                + " OR (nombres LIKE '" + buscar
-                + "' OR apellidos LIKE '" + buscar
-                + "' OR tel1 LIKE '" + buscar
-                + "' OR tel2 LIKE '" + buscar + "')";
+                + "WHERE (nombres LIKE '%" + buscar
+                + "%' OR apellidos LIKE '%" + buscar
+                + "%' OR tel1 LIKE '%" + buscar
+                + "%' OR tel2 LIKE '%" + buscar + "%')";
 
         try {
             Conexion c = new Conexion();
